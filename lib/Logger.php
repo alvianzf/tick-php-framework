@@ -19,6 +19,8 @@ class Logger
      * These four are echo colors
      * because, why not?
      * 
+     * PS: Works on console only.
+     * To be used solely on tick document, otherwise, it'll look real weird
      */
     public function error($message)
     {

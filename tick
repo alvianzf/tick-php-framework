@@ -9,6 +9,7 @@ if (php_sapi_name() !== 'cli') {
     exit;
 }
 
+
 /**
  * Registers Auto Loader to use with Composer
  * --------------------------------------------------------
@@ -17,7 +18,6 @@ if (php_sapi_name() !== 'cli') {
  * application loads.
  * 
  */
-
 require __DIR__ . '/vendor/autoload.php';
 
 /**
@@ -41,7 +41,6 @@ $options = getopt("p:",["port:"]);
  * Checks if port is provided
  * 
  */
-
 $port = isset($options["port"]) ? $options["port"] : 8080;
 
 
@@ -50,9 +49,7 @@ $port = isset($options["port"]) ? $options["port"] : 8080;
  *
  */
 $valid_port = true;
-
-if (strlen($port) != 4)
-{
+if (strlen($port) != 4) {
     // echo "\e[1;37;41minvalid port on localhost:$port\e[0m" . PHP_EOL;
     $logger->error("invalid port on localhost:$port");
     $valid_port = false;
