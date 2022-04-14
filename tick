@@ -11,15 +11,49 @@ if (php_sapi_name() !== 'cli') {
  * 
  * These files will be generated the first time the
  * application loads.
+ * 
  */
 
 require __DIR__ . '/vendor/autoload.php';
 
+
 /**
- * Loads all commands needed for Tick to work
+ * Gets php tick options.
+ * Options include:
+ * - port --> to specify which port the app will run
+ * 
+ */
+$options = getopt("p:",["port:"]);
+
+
+/**
+ * Checks if port is provided
  */
 
- use Tick\App;
+$port = isset($options["port"]) ? $options["port"] : 8080;
 
- $app = new App();
- $app->run_tick_commands($argv);
+/**
+ * Checks if port number provided is valid
+ *
+ */
+$valid_port = true;
+if (strlen($port) > 4)
+{
+    echo "\e[1;37;41minvalid port on localhost:$port\e[0m" . PHP_EOL;
+    $valid_port = false;
+}
+/**
+ * Runs the localhost server, if port is port is provided
+ * the server will run in the specified port.
+ * Otherwise, it will run on port 8000
+ * 
+ */
+
+ if ($valid_port) {
+    echo("\n\e[1;37;42mDevelopment server started!\e[0m" . PHP_EOL);
+    echo("Copy this url into your browser to start\n" . PHP_EOL);
+    echo("\e[1;32m==================================\e[0m\n" . PHP_EOL);
+    echo("\e[1;32mhttp://localhost:$port\e[0m\n" . PHP_EOL);
+    echo("\e[1;32m==================================\e[0m\n" . PHP_EOL);
+    shell_exec("php -S localhost:$port" . PHP_EOL);
+ }
