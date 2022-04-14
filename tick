@@ -44,6 +44,7 @@ $options = getopt("p:",["port:"]);
 
 $port = isset($options["port"]) ? $options["port"] : 8080;
 
+
 /**
  * Checks if port number provided is valid
  *
@@ -56,13 +57,14 @@ if (strlen($port) != 4)
     $logger->error("invalid port on localhost:$port");
     $valid_port = false;
 }
+
+
 /**
- * Runs the localhost server, if port is port is provided
+ * Runs the localhost server, if port is provided
  * the server will run in the specified port.
- * Otherwise, it will run on port 8000
+ * Otherwise, it will run on port 8080
  * 
  */
-
  if ($valid_port) {
     echo PHP_EOL;
     $logger->success("Development server started!");
@@ -71,6 +73,6 @@ if (strlen($port) != 4)
     $logger->success("http://localhost:$port");
     $logger->success("==================================");
     echo PHP_EOL;
-    
+
     shell_exec("php -S localhost:$port" . PHP_EOL);
  }
