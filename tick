@@ -1,6 +1,10 @@
 #!/usr/bin/php
 <?php
 
+/**
+ * Yeah, this
+ * 
+ */
 if (php_sapi_name() !== 'cli') {
     exit;
 }
@@ -16,6 +20,13 @@ if (php_sapi_name() !== 'cli') {
 
 require __DIR__ . '/vendor/autoload.php';
 
+/**
+ * Call all classes from the autoload
+ * 
+ */
+use Tick\Logger;
+$logger = new Logger();
+
 
 /**
  * Gets php tick options.
@@ -28,6 +39,7 @@ $options = getopt("p:",["port:"]);
 
 /**
  * Checks if port is provided
+ * 
  */
 
 $port = isset($options["port"]) ? $options["port"] : 8080;
@@ -37,9 +49,11 @@ $port = isset($options["port"]) ? $options["port"] : 8080;
  *
  */
 $valid_port = true;
-if (strlen($port) > 4)
+
+if (strlen($port) != 4)
 {
-    echo "\e[1;37;41minvalid port on localhost:$port\e[0m" . PHP_EOL;
+    // echo "\e[1;37;41minvalid port on localhost:$port\e[0m" . PHP_EOL;
+    $logger->error("invalid port on localhost:$port");
     $valid_port = false;
 }
 /**
@@ -50,10 +64,13 @@ if (strlen($port) > 4)
  */
 
  if ($valid_port) {
-    echo("\n\e[1;37;42mDevelopment server started!\e[0m" . PHP_EOL);
-    echo("Copy this url into your browser to start\n" . PHP_EOL);
-    echo("\e[1;32m==================================\e[0m\n" . PHP_EOL);
-    echo("\e[1;32mhttp://localhost:$port\e[0m\n" . PHP_EOL);
-    echo("\e[1;32m==================================\e[0m\n" . PHP_EOL);
+    echo PHP_EOL;
+    $logger->success("Development server started!");
+    $logger->display("Copy this url into your browser to start");
+    $logger->success("==================================");
+    $logger->success("http://localhost:$port");
+    $logger->success("==================================");
+    echo PHP_EOL;
+    
     shell_exec("php -S localhost:$port" . PHP_EOL);
  }
