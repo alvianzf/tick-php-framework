@@ -1,0 +1,28 @@
+#!/usr/bin/php
+<?php
+
+if (php_sapi_name() !== 'cli') {
+    exit;
+}
+
+/**
+ * get options from terminal if the user needs
+ * to change ports;
+ * exits when user inputs invalid port number
+ */
+$options = getopt("", ["p:"]);
+
+if (strlen($options["p"]) > 4) {
+    echo 'invalid port number: localhost:' . $options["p"] . PHP_EOL;
+    echo 'exiting ...' . PHP_EOL;
+    exit;
+}
+
+$port = @$options["p"] ? (int)$options["p"] : 8080;
+
+/**
+ * Tells the script to run php server on port 8080
+ * and logs it into the terminal
+ */
+$output = shell_exec('php -S localhost:8080');
+echo "<pre>$output</pre>";
