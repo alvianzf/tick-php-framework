@@ -4,6 +4,9 @@ A light-weight PHP framework that I worked from scratch as a side project.
 
 Built using symphony (composer) and some inspiration from Laravel and Codeigniter 3.
 
+Written by Alvian Zachry Faturrahman.
+[alvianzf@gmail.com](mailto:alvianzf@gmail.com)
+
 ## Dependencies
 | Dependency | Version | Notes                        |
 |------------|---------|------------------------------|
