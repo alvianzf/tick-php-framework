@@ -14,7 +14,7 @@ Written by Alvian Zachry Faturrahman.
 | composer   | ~2.3.5  | untested for composer <2.3.5 |
 | node       | ~14.0   | untested for node < 14.0     |
 ## To start
-Start by using dumping the Autoload into yout project  
+Start by using composer to dump the Autoload onto your project  
 `composer dump-autoload`  
 
 You can run the application by using  
