@@ -18,4 +18,8 @@ class CliLogger
         $this->newline();
         $this->newline();
     }
+
+    public function no_command($option) {
+        $this->display("ERROR, command '$option' not found!");
+    }
 }
