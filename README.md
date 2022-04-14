@@ -4,6 +4,12 @@ A light-weight PHP framework that I worked from scratch as a side project.
 
 Built using symphony (composer) and some inspiration from Laravel and Codeigniter 3.
 
+## Dependencies
+| Dependency | Version | Notes                        |
+|------------|---------|------------------------------|
+| php        | ~7.4    | untested for PHP <7.4        |
+| composer   | ~2.3.5  | untested for composer <2.3.5 |
+| node       | ~14.0   | untested for node < 14.0     |
 ## To start
 Start by using dumping the Autoload into yout project  
 `composer dump-autoload`  
