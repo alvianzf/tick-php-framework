@@ -4,6 +4,12 @@ namespace Tick;
 
 class App
 {
+    protected $logger;
+
+    public function __construct() {
+        $this->logger = new CliLogger();
+    }
+
     public function runCommand(array $argv){
         $name = "World";
 
@@ -11,6 +17,6 @@ class App
             $name = $argv[1];
         }
 
-        echo "Hello $name!!!\n";
+        $this->logger->display("Hello $name!!!");
     }
 }
