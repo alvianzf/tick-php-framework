@@ -41,25 +41,4 @@ class Logger
     {
         echo $message . PHP_EOL;
     }
-
-    /**
-     * Verbose is used to print out data using var dump and <pre></pre>
-     * It also stops the script running past this point
-     * 
-     */
-    public function verbose($data) {
-        $verbose = var_dump($data);
-        echo("<pre>[$verbose]</pre>");
-        exit;
-    }
-
-    /**
-     * console_log is used to print out those pesky objects
-     * so that it will look nice as JSON
-     * 
-     */
-    public function console_log($data) {
-        $encoded = json_encode($data);
-        echo ($encoded);
-    }
 }
