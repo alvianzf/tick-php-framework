@@ -6,10 +6,10 @@ Built using symphony (composer) and some inspiration from Laravel and Codeignite
 
 ## To start
 Start by using dumping the Autoload into yout project  
-> `composer dump-autoload`  
+`composer dump-autoload`  
 
 You can run the application by using  
-> `php tick`  
+`php tick`  
   
 or specify the port by using the `--port` attribute  
-> `php tick --port 3000`  
+`php tick --port 3000`  
