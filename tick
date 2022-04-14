@@ -6,23 +6,20 @@ if (php_sapi_name() !== 'cli') {
 }
 
 /**
- * get options from terminal if the user needs
- * to change ports;
- * exits when user inputs invalid port number
+ * Registers Auto Loader to use with Composer
+ * --------------------------------------------------------
+ * 
+ * These files will be generated the first time the
+ * application loads.
  */
-$options = getopt("", ["p:"]);
 
-if (strlen($options["p"]) > 4) {
-    echo 'invalid port number: localhost:' . $options["p"] . PHP_EOL;
-    echo 'exiting ...' . PHP_EOL;
-    exit;
-}
-
-$port = @$options["p"] ? (int)$options["p"] : 8080;
+require __DIR__ . '/vendor/autoload.php';
 
 /**
- * Tells the script to run php server on port 8080
- * and logs it into the terminal
+ * Loads all commands needed for Tick to work
  */
-$output = shell_exec('php -S localhost:8080');
-echo "<pre>$output</pre>";
+
+ use Tick\App;
+
+ $app = new App();
+ $app->runCommand($argv);
