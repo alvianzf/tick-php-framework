@@ -22,3 +22,6 @@ You can run the application by using
   
 or specify the port by using the `--port` attribute  
 `php tick --port 3000`  
+  
+## How to use
+Don't know yet
