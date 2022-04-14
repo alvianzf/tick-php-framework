@@ -4,6 +4,6 @@
  * Declaring most used namespaces to use
  * 
  */
-use Tick\Logger;
+use Tick;
 
-$log = new Logger();
+$log = new Tick\Logger();
